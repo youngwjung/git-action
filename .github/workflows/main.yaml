@@ -1,0 +1,19 @@
+name: deploy
+
+on: push
+    
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Slak
+      id: deployment_message
+      uses: slackapi/slack-github-action@v1.26.0
+      with:
+        channel-id: "infra"
+        payload: |
+          {
+            "text": "Deployment started (In Progress)"
+          }
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
