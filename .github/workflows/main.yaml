@@ -1,7 +1,10 @@
 name: deploy
 
 on: push
-    
+
+permissions:
+  issues: write
+
 jobs:
   notify:
     runs-on: ubuntu-latest
@@ -79,6 +82,7 @@ jobs:
       id: manual-approval
       uses: trstringer/manual-approval@v1
       with:
+        secret: ${{ github.TOKEN }}
         approvers: youngwjung
         minimum-approvals: 1
         exclude-workflow-initiator-as-approver: false
