@@ -75,3 +75,9 @@ jobs:
           }
       env:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+    - name: Approve
+      id: manual-approval
+      uses: trstringer/manual-approval@v1
+        approvers: youngwjung
+        minimum-approvals: 1
+        exclude-workflow-initiator-as-approver: false
