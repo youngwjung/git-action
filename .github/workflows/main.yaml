@@ -87,3 +87,4 @@ jobs:
         approvers: youngwjung
         minimum-approvals: 1
         exclude-workflow-initiator-as-approver: false
+        issue-title: ${{ github.event.workflow_run.head_commit.message }}
